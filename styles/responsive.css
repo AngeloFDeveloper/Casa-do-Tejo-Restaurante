@@ -77,16 +77,7 @@
 	}
 	.intro_content
 	{
-		position: relative;
-		top: auto;
-		-webkit-transform: none;
-		-moz-transform: none;
-		-ms-transform: none;
-		-o-transform: none;
-		transform: none;
-		right: auto;
-		margin-bottom: 102px;
-		width: 100%;
+		margin-left: 0;
 	}
 	.dish_price
 	{
