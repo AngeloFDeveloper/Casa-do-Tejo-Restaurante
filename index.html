@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>Casa do Tejo — Restaurante em Lisboa</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Casa do Tejo — cozinha portuguesa contemporânea no coração de Lisboa. Reservas e menu online.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+<link href="plugins/jquery-datepicker/jquery-ui.css" rel="stylesheet" type="text/css">
+<link href="plugins/jquery-timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+
+<style>
+/* =============================================
+   HERO com foto Unsplash
+============================================= */
+.home .parallax_background {
+   background-image: url('images/fundo1.jpg') !important;
+}
+.home .parallax_background::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.55); /* 0.55 = intensidade do escuro, vai de 0 a 1 */
+}
+
+/* =============================================
+   SECÇÃO DE VÍDEO — foto de ambiente
+============================================= */
+.video_section .background_image {
+     background-image: url('images/home.jpg') !important;
+}
+
+/* =============================================
+   RESERVAS — foto de mesa
+============================================= */
+.reservations .parallax_background {
+    background-image: url('https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=1800&q=85') !important;
+}
+
+/* =============================================
+   PRATO ESPECIAL — foto do prato
+============================================= */
+.sig_image .background_image {
+    background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=85') !important;
+}
+.sig_image img {
+    content: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=85');
+}
+
+/* =============================================
+   ANIMAÇÕES AO SCROLL
+============================================= */
+.ct-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.ct-fade.ct-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.ct-fade-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.ct-fade-left.ct-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+.ct-fade-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.ct-fade-right.ct-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+.ct-d1 { transition-delay: 0.1s; }
+.ct-d2 { transition-delay: 0.22s; }
+.ct-d3 { transition-delay: 0.34s; }
+
+/* Hover nas imagens de intro */
+.intro_image {
+    overflow: hidden;
+    border-radius: 3px;
+}
+.intro_image img {
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+.intro_image:hover img {
+    transform: scale(1.06);
+    filter: brightness(1.08);
+}
+
+/* Hover nos pratos do menu */
+.dish {
+    transition: background 0.3s ease, padding-left 0.3s ease;
+    border-radius: 4px;
+    padding-left: 0;
+}
+.dish:hover {
+    background: rgba(255,255,255,0.04);
+    padding-left: 8px;
+}
+
+/* Botão — micro animação */
+.button a, .res_button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.button a:hover, .res_button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25) !important;
+}
+</style>
+</head>
+<body>
+
+<div class="super_container">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                        <div class="logo">
+                            <a href="#">
+                                <div>Casa do Tejo</div>
+                                <div>restaurante</div>
+                            </a>
+                        </div>
+                        <nav class="main_nav">
+                            <ul class="d-flex flex-row align-items-center justify-content-start">
+                                <li><a href="index.html">início</a></li>
+                                <li><a href="about.html">sobre nós</a></li>
+                                <li><a href="menu.html">ementa</a></li>
+                                <li><a href="#">entregas</a></li>
+                                <li><a href="blog.html">novidades</a></li>
+                                <li><a href="contact.html">contacto</a></li>
+                            </ul>
+                        </nav>
+                        <div class="reservations_phone ml-auto">Reservas: +351 21 345 67 89</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hamburger -->
+    <div class="hamburger_bar trans_400 d-flex flex-row align-items-center justify-content-start">
+        <div class="hamburger">
+            <div class="menu_toggle d-flex flex-row align-items-center justify-content-start">
+                <span>menu</span>
+                <div class="hamburger_container">
+                    <div class="menu_hamburger">
+                        <div class="line_1 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+                        <div class="line_2 hamburger_lines" style="visibility: inherit; opacity: 1;"></div>
+                        <div class="line_3 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div class="menu trans_800">
+        <div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
+            <ul>
+                <li><a href="index.html">início</a></li>
+                <li><a href="about.html">sobre nós</a></li>
+                <li><a href="menu.html">ementa</a></li>
+                <li><a href="#">entregas</a></li>
+                <li><a href="blog.html">novidades</a></li>
+                <li><a href="contact.html">contacto</a></li>
+            </ul>
+        </div>
+        <div class="menu_reservations_phone ml-auto">Reservas: +351 21 345 67 89</div>
+    </div>
+
+    <!-- Hero -->
+    <div class="home">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=85" data-speed="0.8"></div>
+        <div class="home_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content text-center">
+                            <div class="home_subtitle page_subtitle">Casa do Tejo é</div>
+                            <div class="home_title"><h1>Uma Experiência Inesquecível</h1></div>
+                            <div class="home_text ml-auto mr-auto">
+                                <p>No coração de Lisboa, à beira do Tejo, celebramos os sabores da nossa terra com uma cozinha portuguesa contemporânea que respeita a tradição e abraça a inovação.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll_icon"></div>
+    </div>
+
+    <!-- Intro -->
+    <div class="intro">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="intro_content ct-fade">
+                        <div class="intro_subtitle page_subtitle">O nosso espaço</div>
+                        <div class="intro_title"><h2>Tradição com alma contemporânea</h2></div>
+                        <div class="intro_text">
+                            <p>A Casa do Tejo nasceu do amor pela cozinha portuguesa honesta — aquela que recorda memórias de infância e ao mesmo tempo surpreende. Utilizamos produtos locais e sazonais, trabalhados com técnicas modernas, para criar pratos que contam a história de Portugal em cada garfada. O nosso espaço, com vista para o rio, é o cenário perfeito para um jantar especial, uma celebração ou simplesmente uma boa refeição em boa companhia.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-4 col-md-6 intro_col ct-fade-left ct-d1">
+                            <div class="intro_image"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Ambiente do restaurante"></div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 intro_col ct-fade-left ct-d2">
+                            <div class="intro_image"><img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&q=80" alt="Pratos da Casa do Tejo"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vídeo / Ambiente -->
+    <div class="video_section">
+        <div class="background_image" style="background-image:url(https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1800&q=85)"></div>
+        <div class="video_section_content d-flex flex-column align-items-center justify-content-center text-center">
+            <div class="video_section_title">Cozinha para a alma</div>
+            <div class="video_section_icon"><a class="vimeo video_button" href="https://player.vimeo.com/video/99340873?autoplay=1&loop=1&title=0&autopause=0"><i class="fa fa-play" aria-hidden="true"></i></a></div>
+        </div>
+    </div>
+
+    <!-- Prato de Assinatura -->
+    <div class="sig">
+        <div class="sig_content_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 ct-fade-left">
+                        <div class="sig_content">
+                            <div class="sig_subtitle page_subtitle">Destaque da semana</div>
+                            <div class="sig_title"><h1>O Nosso Prato de Assinatura</h1></div>
+                            <div class="rating_r sig_rating rating_r_5"><i></i><i></i><i></i><i></i><i></i></div>
+                            <div class="sig_name_container d-flex flex-row align-items-start justify-content-start">
+                                <div class="sig_name">Bacalhau à Brás com Açafrão e Ovo de Codorniz</div>
+                                <div class="sig_price ml-auto">18€</div>
+                            </div>
+                            <div class="sig_content_list">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li>Bacalhau</li>
+                                    <li>Açafrão</li>
+                                    <li>Batata Palha</li>
+                                    <li>Ovo de Codorniz</li>
+                                </ul>
+                            </div>
+                            <div class="button sig_button trans_200"><a href="menu.html">Ver Ementa Completa</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sig_image_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 offset-lg-5">
+                        <div class="sig_image">
+                            <div class="background_image" style="background-image:url(https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=85)"></div>
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=85" alt="Bacalhau à Brás — prato de assinatura">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ementa -->
+    <div class="themenu">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="themenu_title_bar_container ct-fade">
+                        <div class="themenu_stars text-center page_subtitle">5 Estrelas</div>
+                        <div class="themenu_rating text-center">
+                            <div class="rating_r rating_r_5"><i></i><i></i><i></i><i></i><i></i></div>
+                        </div>
+                        <div class="themenu_title_bar d-flex flex-column align-items-center justify-content-center">
+                            <div class="themenu_title">A Ementa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row themenu_row">
+
+                <!-- Entradas -->
+                <div class="col-lg-4 themenu_column ct-fade ct-d1">
+                    <div class="themenu_col">
+                        <div class="themenu_col_title">Entradas</div>
+                        <div class="dish_list">
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Pataniscas de Bacalhau</div>
+                                    <div class="dish_price">7€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Bacalhau</li><li>Salsa</li><li>Limão</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Chouriço Assado na Brasa</div>
+                                    <div class="dish_price">6€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Chouriço Alentejano</li><li>Broa</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Ameijoas à Bulhão Pato</div>
+                                    <div class="dish_price">14€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Ameijoas</li><li>Alho</li><li>Coentros</li><li>Limão</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Queijo da Serra com Mel</div>
+                                    <div class="dish_price">9€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Queijo da Serra</li><li>Mel de Urze</li><li>Nozes</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Gambas ao Ajillo</div>
+                                    <div class="dish_price">13€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Gambas</li><li>Alho</li><li>Piri-piri</li><li>Azeite</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pratos Principais -->
+                <div class="col-lg-4 themenu_column ct-fade ct-d2">
+                    <div class="themenu_col">
+                        <div class="themenu_col_title">Pratos Principais</div>
+                        <div class="dish_list">
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Bacalhau à Brás com Açafrão</div>
+                                    <div class="dish_price">18€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Bacalhau</li><li>Açafrão</li><li>Batata Palha</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Arroz de Pato à Portuguesa</div>
+                                    <div class="dish_price">17€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Pato</li><li>Arroz</li><li>Chouriço</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Polvo Grelhado com Batata a Murro</div>
+                                    <div class="dish_price">22€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Polvo</li><li>Batata</li><li>Pimentão</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Secretos de Porco Preto Alentejano</div>
+                                    <div class="dish_price">21€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Porco Preto</li><li>Migas</li><li>Limão</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Cataplana de Marisco</div>
+                                    <div class="dish_price">26€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Marisco</li><li>Tomate</li><li>Coentros</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sobremesas -->
+                <div class="col-lg-4 themenu_column ct-fade ct-d3">
+                    <div class="themenu_col">
+                        <div class="themenu_col_title">Sobremesas</div>
+                        <div class="dish_list">
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Pastel de Nata Desconstruído</div>
+                                    <div class="dish_price">5€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Creme de Ovo</li><li>Massa Folhada</li><li>Canela</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Tarte de Amêndoa do Algarve</div>
+                                    <div class="dish_price">6€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Amêndoa</li><li>Mel</li><li>Laranja</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Pudim Abade de Priscos</div>
+                                    <div class="dish_price">5€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Ovo</li><li>Caramelo</li><li>Toucinho</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Mousse de Chocolate Negro</div>
+                                    <div class="dish_price">5€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Chocolate 70%</li><li>Flor de Sal</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                            <div class="dish">
+                                <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                                    <div class="dish_title">Gelado Artesanal do Dia</div>
+                                    <div class="dish_price">4€</div>
+                                </div>
+                                <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Frutas Sazonais</li><li>Baunilha</li></ul></div>
+                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Reservas -->
+    <div class="reservations text-center">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=1800&q=85" data-speed="0.8"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="reservations_content d-flex flex-column align-items-center justify-content-center">
+                        <div class="res_stars page_subtitle">5 Estrelas</div>
+                        <div class="res_title">Fazer uma Reserva</div>
+                        <div class="res_form_container">
+                            <form action="#" id="res_form" class="res_form">
+                                <div class="d-flex flex-sm-row flex-column align-items-center justify-content-start">
+                                    <input type="text" id="datepicker" class="res_input" placeholder="Data" required="required">
+                                    <input type="text" class="res_input timepicker" placeholder="Hora" required="required">
+                                    <select class="res_select">
+                                        <option disabled="" selected="">2 pessoas</option>
+                                        <option>3 pessoas</option>
+                                        <option>4 pessoas</option>
+                                        <option>5 pessoas</option>
+                                        <option>6 pessoas</option>
+                                        <option>7+ pessoas</option>
+                                    </select>
+                                </div>
+                                <button class="res_button">Reservar Mesa</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 footer_col">
+                    <div class="footer_logo">
+                        <div class="footer_logo_title">Casa do Tejo</div>
+                        <div class="footer_logo_subtitle">restaurante</div>
+                    </div>
+                    <div class="copyright">
+                        <p style="line-height:1.2;">&copy; <script>document.write(new Date().getFullYear());</script> Casa do Tejo. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 footer_col">
+                    <div class="footer_about">
+                        <p>No coração de Lisboa, à beira do Tejo, celebramos os sabores da nossa terra com uma cozinha portuguesa contemporânea. Produtos locais, técnicas modernas, alma portuguesa — todos os dias, ao almoço e ao jantar.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 footer_col">
+                    <div class="footer_contact">
+                        <ul>
+                            <li class="d-flex flex-row align-items-start justify-content-start">
+                                <div><div class="footer_contact_title">Morada:</div></div>
+                                <div class="footer_contact_text">Rua do Terreiro do Paço, 12 — 1100-148 Lisboa</div>
+                            </li>
+                            <li class="d-flex flex-row align-items-start justify-content-start">
+                                <div><div class="footer_contact_title">Telefone:</div></div>
+                                <div class="footer_contact_text">+351 21 345 67 89</div>
+                            </li>
+                            <li class="d-flex flex-row align-items-start justify-content-start">
+                                <div><div class="footer_contact_title">Email:</div></div>
+                                <div class="footer_contact_text">reservas@casadotejo.pt</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap-4.1.2/popper.js"></script>
+<script src="styles/bootstrap-4.1.2/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="plugins/colorbox/jquery.colorbox-min.js"></script>
+<script src="plugins/jquery-datepicker/jquery-ui.js"></script>
+<script src="plugins/jquery-timepicker/jquery.timepicker.js"></script>
+<script src="js/custom.js"></script>
+
+<script>
+// Animações ao scroll
+(function() {
+    var els = document.querySelectorAll('.ct-fade, .ct-fade-left, .ct-fade-right');
+    var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('ct-visible');
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    els.forEach(function(el) { obs.observe(el); });
+})();
+</script>
+</body>
+</html>
