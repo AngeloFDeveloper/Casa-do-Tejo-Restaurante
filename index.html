@@ -90,28 +90,163 @@
 .ct-d2 { transition-delay: 0.22s; }
 .ct-d3 { transition-delay: 0.34s; }
 
-/* Hover nas imagens de intro */
-.intro_image {
+/* Intro — composição editorial de imagens */
+.intro_images_wrap {
+    position: relative;
+    height: 520px;
+}
+.intro_img_main {
+    position: absolute;
+    top: 0; left: 0;
+    width: 63%; height: 87%;
     overflow: hidden;
-    border-radius: 3px;
+    border-radius: 4px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.16);
+    z-index: 2;
 }
-.intro_image img {
-    transition: transform 0.5s ease, filter 0.5s ease;
+.intro_img_main img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.65s ease;
 }
-.intro_image:hover img {
-    transform: scale(1.06);
-    filter: brightness(1.08);
+.intro_img_main:hover img { transform: scale(1.04); }
+
+.intro_img_accent {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 56%; height: 50%;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 20px 55px rgba(0,0,0,0.2);
+    border: 5px solid #faf7f2;
+    z-index: 3;
+}
+.intro_img_accent img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.65s ease;
+}
+.intro_img_accent:hover img { transform: scale(1.04); }
+
+.intro_img_frame {
+    position: absolute;
+    top: 22px; left: 22px;
+    width: 63%; height: 87%;
+    border: 1px solid rgba(201,169,110,0.45);
+    border-radius: 4px;
+    z-index: 1;
+    pointer-events: none;
 }
 
-/* Hover nos pratos do menu */
-.dish {
-    transition: background 0.3s ease, padding-left 0.3s ease;
-    border-radius: 4px;
-    padding-left: 0;
+/* Botão acima da moldura interna do intro_content */
+.intro_btn {
+    position: relative;
+    z-index: 1;
 }
-.dish:hover {
-    background: rgba(255,255,255,0.04);
-    padding-left: 8px;
+
+/* Ornamento dourado antes do subtítulo */
+.intro_ornament {
+    width: 36px;
+    height: 1px;
+    background: #c9a96e;
+    margin-bottom: 22px;
+}
+
+/* =============================================
+   EMENTA — fundo escuro, contraste moderno
+============================================= */
+.themenu {
+    background: #111 !important;
+    padding-top: 80px !important;
+}
+.themenu_title_bar_container {
+    background: #0a0a0a !important;
+}
+.themenu_stars {
+    background: #0a0a0a !important;
+}
+.themenu_rating {
+    background: #0a0a0a !important;
+}
+.themenu_col {
+    background: #1a1a1a !important;
+    border-top: 2px solid #c9a96e !important;
+}
+.themenu_col:hover {
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5) !important;
+    background: #202020 !important;
+}
+.themenu_col_title {
+    color: #fff !important;
+    border-bottom-color: #c9a96e !important;
+}
+.dish_title {
+    font-size: 21px !important;
+    color: rgba(255,255,255,0.92) !important;
+}
+.dish_price {
+    font-size: 16px !important;
+}
+.dish_contents ul li {
+    color: rgba(255,255,255,0.42) !important;
+    font-size: 10px !important;
+}
+.dish:not(:last-child) {
+    border-bottom-color: rgba(255,255,255,0.07) !important;
+}
+.dish_order a {
+    color: #c9a96e !important;
+}
+
+/* Hover nos pratos do menu — sublinhado dourado no título */
+.dish {
+    border-radius: 4px;
+}
+.dish_title {
+    position: relative !important;
+    display: inline-block !important;
+    transition: color 0.25s ease !important;
+}
+.dish_title::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #c9a96e;
+    transition: width 0.3s ease;
+}
+.dish:hover .dish_title {
+    color: #c9a96e !important;
+}
+.dish:hover .dish_title::after {
+    width: 100%;
+}
+
+/* Botão de contacto no header */
+.nav_cta a {
+    background: #c9a96e;
+    border: 1px solid #c9a96e;
+    border-radius: 3px;
+    padding: 10px 28px !important;
+    color: #fff !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
+}
+.nav_cta a:hover {
+    background: transparent;
+    border-color: #c9a96e;
+    color: #c9a96e !important;
+}
+
+/* Timepicker dropdown acima do botão de reserva */
+.ui-timepicker-container {
+    z-index: 9999 !important;
 }
 
 /* Botão — micro animação */
@@ -122,71 +257,27 @@
     transform: translateY(-2px) !important;
     box-shadow: 0 6px 20px rgba(0,0,0,0.25) !important;
 }
+
+/* Reservar Mesa — cores invertidas */
+.res_button {
+    background: #c9a96e !important;
+    color: #fff !important;
+    border-color: #c9a96e !important;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+.res_button:hover {
+    background: transparent !important;
+    color: #c9a96e !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
 </style>
 </head>
 <body>
 
 <div class="super_container">
 
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="header_content d-flex flex-row align-items-center justify-content-start">
-                        <div class="logo">
-                            <a href="#">
-                                <div>Casa do Tejo</div>
-                                <div>restaurante</div>
-                            </a>
-                        </div>
-                        <nav class="main_nav">
-                            <ul class="d-flex flex-row align-items-center justify-content-start">
-                                <li><a href="index.html">início</a></li>
-                                <li><a href="about.html">sobre</a></li>
-                                <li><a href="menu.html">ementa</a></li>
-                                <li><a href="#">entregas</a></li>
-                                <li><a href="blog.html">novidades</a></li>
-                                <li><a href="contact.html">contacto</a></li>
-                            </ul>
-                        </nav>
-                        <div class="reservations_phone ml-auto">Reservas: +351 21 345 67 89</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hamburger -->
-    <div class="hamburger_bar trans_400 d-flex flex-row align-items-center justify-content-start">
-        <div class="hamburger">
-            <div class="menu_toggle d-flex flex-row align-items-center justify-content-start">
-                <span>menu</span>
-                <div class="hamburger_container">
-                    <div class="menu_hamburger">
-                        <div class="line_1 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
-                        <div class="line_2 hamburger_lines" style="visibility: inherit; opacity: 1;"></div>
-                        <div class="line_3 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Menu mobile -->
-    <div class="menu trans_800">
-        <div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
-            <ul>
-                <li><a href="index.html">início</a></li>
-                <li><a href="about.html">sobre nós</a></li>
-                <li><a href="menu.html">ementa</a></li>
-                <li><a href="#">entregas</a></li>
-                <li><a href="blog.html">novidades</a></li>
-                <li><a href="contact.html">contacto</a></li>
-            </ul>
-        </div>
-        <div class="menu_reservations_phone ml-auto">Reservas: +351 21 345 67 89</div>
-    </div>
+    <script src="js/nav.js"></script>
 
     <!-- Hero -->
     <div class="home">
@@ -214,22 +305,25 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7">
-                    <div class="row">
-                        <div class="col-6 intro_col ct-fade-left ct-d1">
-                            <div class="intro_image"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Ambiente do restaurante"></div>
+                    <div class="intro_images_wrap ct-fade-left ct-d1">
+                        <div class="intro_img_frame"></div>
+                        <div class="intro_img_main">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=85" alt="Ambiente do restaurante">
                         </div>
-                        <div class="col-6 intro_col ct-fade-left ct-d2">
-                            <div class="intro_image"><img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&q=80" alt="Pratos da Casa do Tejo"></div>
+                        <div class="intro_img_accent ct-fade-left ct-d2">
+                            <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=700&q=85" alt="Pratos da Casa do Tejo">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5">
                     <div class="intro_content ct-fade">
+                        <div class="intro_ornament"></div>
                         <div class="intro_subtitle page_subtitle">O nosso espaço</div>
                         <div class="intro_title"><h2>Tradição com alma contemporânea</h2></div>
                         <div class="intro_text">
                             <p>A Casa do Tejo nasceu do amor pela cozinha portuguesa honesta — aquela que recorda memórias de infância e ao mesmo tempo surpreende. Utilizamos produtos locais e sazonais, trabalhados com técnicas modernas, para criar pratos que contam a história de Portugal em cada garfada. O nosso espaço, com vista para o rio, é o cenário perfeito para um jantar especial, uma celebração ou simplesmente uma boa refeição em boa companhia.</p>
                         </div>
+                        <div class="button intro_btn" style="margin-top:36px;"><a href="about.html">Conheça-nos</a></div>
                     </div>
                 </div>
             </div>
@@ -316,7 +410,6 @@
                                     <div class="dish_price">7€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Bacalhau</li><li>Salsa</li><li>Limão</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                             <div class="dish">
                                 <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
@@ -324,7 +417,6 @@
                                     <div class="dish_price">6€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Chouriço Alentejano</li><li>Broa</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                             <div class="dish">
                                 <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
@@ -332,7 +424,6 @@
                                     <div class="dish_price">14€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Ameijoas</li><li>Alho</li><li>Coentros</li><li>Limão</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                             <div class="dish">
                                 <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
@@ -340,7 +431,6 @@
                                     <div class="dish_price">9€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Queijo da Serra</li><li>Mel de Urze</li><li>Nozes</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                             <div class="dish">
                                 <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
@@ -348,7 +438,6 @@
                                     <div class="dish_price">13€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Gambas</li><li>Alho</li><li>Piri-piri</li><li>Azeite</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                         </div>
                     </div>
@@ -361,11 +450,10 @@
                         <div class="dish_list">
                             <div class="dish">
                                 <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
-                                    <div class="dish_title">Bacalhau à Brás com Açafrão</div>
+                                    <div class="dish_title">Bacalhau à Brás</div>
                                     <div class="dish_price">18€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Bacalhau</li><li>Açafrão</li><li>Batata Palha</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                             <div class="dish">
                                 <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
@@ -373,23 +461,20 @@
                                     <div class="dish_price">17€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Pato</li><li>Arroz</li><li>Chouriço</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                             <div class="dish">
                                 <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
-                                    <div class="dish_title">Polvo Grelhado com Batata a Murro</div>
+                                    <div class="dish_title">Polvo Grelhado com Batata</div>
                                     <div class="dish_price">22€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Polvo</li><li>Batata</li><li>Pimentão</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                             <div class="dish">
                                 <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
-                                    <div class="dish_title">Secretos de Porco Preto Alentejano</div>
+                                    <div class="dish_title">Secretos de Porco Preto</div>
                                     <div class="dish_price">21€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Porco Preto</li><li>Migas</li><li>Limão</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                             <div class="dish">
                                 <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
@@ -397,7 +482,6 @@
                                     <div class="dish_price">26€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Marisco</li><li>Tomate</li><li>Coentros</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                         </div>
                     </div>
@@ -410,19 +494,17 @@
                         <div class="dish_list">
                             <div class="dish">
                                 <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
-                                    <div class="dish_title">Pastel de Nata Desconstruído</div>
+                                    <div class="dish_title">Pastel de Nata</div>
                                     <div class="dish_price">5€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Creme de Ovo</li><li>Massa Folhada</li><li>Canela</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                             <div class="dish">
                                 <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
-                                    <div class="dish_title">Tarte de Amêndoa do Algarve</div>
+                                    <div class="dish_title">Tarte de Amêndoa</div>
                                     <div class="dish_price">6€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Amêndoa</li><li>Mel</li><li>Laranja</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                             <div class="dish">
                                 <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
@@ -430,7 +512,6 @@
                                     <div class="dish_price">5€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Ovo</li><li>Caramelo</li><li>Toucinho</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                             <div class="dish">
                                 <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
@@ -438,7 +519,6 @@
                                     <div class="dish_price">5€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Chocolate 70%</li><li>Flor de Sal</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                             <div class="dish">
                                 <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
@@ -446,7 +526,6 @@
                                     <div class="dish_price">4€</div>
                                 </div>
                                 <div class="dish_contents"><ul class="d-flex flex-row align-items-start justify-content-start flex-wrap"><li>Frutas Sazonais</li><li>Baunilha</li></ul></div>
-                                <div class="dish_order"><a href="menu.html">Ver Ementa</a></div>
                             </div>
                         </div>
                     </div>
@@ -469,7 +548,18 @@
                             <form action="#" id="res_form" class="res_form">
                                 <div class="d-flex flex-sm-row flex-column align-items-center justify-content-start">
                                     <input type="text" id="datepicker" class="res_input" placeholder="Data" required="required">
-                                    <input type="text" class="res_input timepicker" placeholder="Hora" required="required">
+                                    <select class="res_input res_select" required="required">
+                                        <option selected="">11:00</option>
+                                        <option>11:30</option>
+                                        <option>12:00</option>
+                                        <option>12:30</option>
+                                        <option>13:00</option>
+                                        <option>19:00</option>
+                                        <option>19:30</option>
+                                        <option>20:00</option>
+                                        <option>20:30</option>
+                                        <option>21:00</option>
+                                    </select>
                                     <select class="res_select">
                                         <option disabled="" selected="">2 pessoas</option>
                                         <option>3 pessoas</option>

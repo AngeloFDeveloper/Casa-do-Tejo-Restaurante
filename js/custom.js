@@ -97,6 +97,7 @@ $(document).ready(function()
 
 	function initVideo()
 	{
+		if (!$.fn.colorbox) { return; }
 		$(".vimeo").colorbox(
 		{
 			iframe:true,
@@ -135,13 +136,15 @@ $(document).ready(function()
 		$('.timepicker').timepicker(
 		{
 		    interval: 60,
-		    minTime: '10',
-		    maxTime: '6:00pm',
-		    defaultTime: '11',
-		    startTime: '10:00',
+		    minTime: '12:00',
+		    maxTime: '23:00',
+		    defaultTime: '19:00',
+		    startTime: '12:00',
+		    timeFormat: 'H:i',
 		    dynamic:  true,
 		    dropdown: true,
-		    scrollbar: true
+		    scrollbar: true,
+		    zindex: 9999
 		});
 	}
 

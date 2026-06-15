@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
-<title>Contact</title>
+<title>Contacto — Casa do Tejo Restaurante</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="The Venue template project">
+<meta name="description" content="Entre em contacto com a Casa do Tejo. Morada, telefone, email e reservas online.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css">
 <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -13,242 +13,330 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link href="plugins/jquery-datepicker/jquery-ui.css" rel="stylesheet" type="text/css">
 <link href="plugins/jquery-timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/contact.css">
-<link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/nav.css">
+
+<style>
+/* Hero — mesma foto da página inicial */
+.home .parallax_background {
+    background-image: url('images/fundo1.jpg') !important;
+}
+.home .parallax_background::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+/* Reservas — foto de mesa */
+.reservations .parallax_background {
+    background-image: url('https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=1800&q=85') !important;
+}
+
+/* Animações ao scroll */
+.ct-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.ct-fade.ct-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.ct-fade-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.ct-fade-left.ct-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+.ct-d1 { transition-delay: 0.1s; }
+.ct-d2 { transition-delay: 0.22s; }
+
+/* Botão — micro animação */
+.button a, .res_button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.button a:hover, .res_button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25) !important;
+}
+
+/* Footer — uniformizar tipografia (anula contact.css que usa PT Sans Narrow / Edward) */
+.footer_logo_title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 48px !important;
+    font-weight: 300 !important;
+    letter-spacing: 0.05em !important;
+}
+.footer_logo_subtitle,
+.copyright,
+.copyright p,
+.footer_about p,
+.footer_contact_title,
+.footer_contact_text {
+    font-family: 'Montserrat', sans-serif !important;
+}
+.footer_logo_subtitle {
+    font-size: 9px !important;
+    letter-spacing: 0.55em !important;
+    color: #c9a96e !important;
+}
+.footer_contact_title {
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    color: #c9a96e !important;
+}
+.footer_contact_text {
+    font-size: 15px !important;
+    font-weight: 300 !important;
+    color: rgba(255,255,255,0.6) !important;
+}
+.footer_about p {
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    color: rgba(255,255,255,0.4) !important;
+}
+.copyright, .copyright p {
+    font-size: 11px !important;
+    color: rgba(255,255,255,0.25) !important;
+}
+
+/* === Secção de contacto redesenhada === */
+.contact {
+    background: #0f0d0b !important;
+    padding-top: 110px !important;
+    padding-bottom: 110px !important;
+}
+.ct_eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 22px;
+}
+.ct_heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 76px;
+    font-weight: 300;
+    line-height: 0.88;
+    color: #fff;
+    letter-spacing: 0.02em;
+}
+.ct_rule {
+    width: 36px;
+    height: 1px;
+    background: #c9a96e;
+    margin: 34px 0;
+}
+.ct_body p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 2;
+    color: rgba(255,255,255,0.42);
+}
+.ct_logo {
+    margin-top: 52px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(201,169,110,0.18);
+}
+.ct_logo_title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 0.85;
+    color: #fff;
+    letter-spacing: 0.04em;
+}
+.ct_logo_sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.55em;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-top: 10px;
+}
+/* Painel direito */
+.ct_panel {
+    background: #1a1612;
+    border: 1px solid rgba(201,169,110,0.18);
+    padding: 48px 52px;
+    margin-left: 16px;
+}
+.ct_list {
+    list-style: none;
+    padding: 0; margin: 0;
+}
+.ct_list li {
+    display: flex;
+    align-items: flex-start;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.ct_list li:first-child { padding-top: 0; }
+.ct_label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #c9a96e;
+    min-width: 96px;
+    padding-top: 3px;
+    flex-shrink: 0;
+}
+.ct_value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.75;
+}
+.ct_value a {
+    color: rgba(255,255,255,0.72);
+    transition: color 0.25s ease;
+}
+.ct_value a:hover { color: #c9a96e; }
+/* Ícones sociais */
+.ct_social {
+    display: flex;
+    gap: 12px;
+    margin-top: 36px;
+}
+.ct_social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(201,169,110,0.35);
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+.ct_social a:hover {
+    background: #c9a96e;
+    border-color: #c9a96e;
+    color: #fff;
+}
+
+/* Mapa */
+.contact_map_iframe {
+    width: 100%;
+    height: 420px;
+    border: 0;
+    display: block;
+    filter: grayscale(20%);
+}
+</style>
 </head>
 <body>
 
 <div class="super_container">
-	
-	<!-- Header -->
 
-	<header class="header">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="header_content d-flex flex-row align-items-center justify-content-start">
-						<div class="logo">
-							<a href="#">
-								<div>The Venue</div>
-								<div>restaurant</div>
-							</a>
-						</div>
-						<nav class="main_nav">
-							<ul class="d-flex flex-row align-items-center justify-content-start">
-								<li><a href="index.html">home</a></li>
-								<li><a href="about.html">about us</a></li>
-								<li><a href="menu.html">menu</a></li>
-								<li><a href="#">delivery</a></li>
-								<li><a href="blog.html">blog</a></li>
-								<li><a href="contact.html">contact</a></li>
-							</ul>
-						</nav>
-						<div class="reservations_phone ml-auto">Reservations: +34 586 778 8892</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+    <script src="js/nav.js"></script>
 
-	<!-- Hamburger -->
-	
-	<div class="hamburger_bar trans_400 d-flex flex-row align-items-center justify-content-start">
-		<div class="hamburger">
-			<div class="menu_toggle d-flex flex-row align-items-center justify-content-start">
-				<span>menu</span>
-				<div class="hamburger_container">
-					<div class="menu_hamburger">
-						<div class="line_1 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
-						<div class="line_2 hamburger_lines" style="visibility: inherit; opacity: 1;"></div>
-						<div class="line_3 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Hero -->
+    <div class="home">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/fundo1.jpg" data-speed="0.8"></div>
+        <div class="home_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content text-center">
+                            <div class="home_subtitle page_subtitle">estamos à sua disposição</div>
+                            <div class="home_title"><h1>Contacto</h1></div>
+                            <div class="home_text ml-auto mr-auto">
+                                <p>Fale connosco para reservas, dúvidas ou sugestões. Teremos todo o gosto em recebê-lo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll_icon"></div>
+    </div>
 
-	<!-- Menu -->
+    <!-- Contacto -->
+    <div class="contact">
+        <div class="container">
+            <div class="row align-items-start">
 
-	<div class="menu trans_800">
-		<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
-			<ul>
-				<li><a href="index.html">home</a></li>
-				<li><a href="about.html">about us</a></li>
-				<li><a href="menu.html">menu</a></li>
-				<li><a href="#">delivery</a></li>
-				<li><a href="blog.html">blog</a></li>
-				<li><a href="contact.html">contact</a></li>
-			</ul>
-		</div>
-		<div class="menu_reservations_phone ml-auto">Reservations: +34 586 778 8892</div>
-	</div>
-	
-	<!-- Home -->
+                <div class="col-lg-5 ct-fade-left ct-d1">
+                    <div class="ct_eyebrow">entre em contacto</div>
+                    <div class="ct_heading">Fale<br>connosco</div>
+                    <div class="ct_rule"></div>
+                    <div class="ct_body">
+                        <p>Estamos sempre disponíveis para responder às suas questões, receber sugestões ou ajudá-lo a planear a sua visita. Passe cá pessoalmente — teremos todo o gosto em recebê-lo.</p>
+                    </div>
+                    <div class="ct_logo">
+                        <div class="ct_logo_title">Casa do Tejo</div>
+                        <div class="ct_logo_sub">restaurante</div>
+                    </div>
+                </div>
 
-	<div class="home">
-		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/contact.jpg" data-speed="0.8"></div>
-		<div class="home_container">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="home_content text-center">
-							<div class="home_subtitle page_subtitle">The Venue</div>
-							<div class="home_title"><h1>Contact</h1></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                <div class="col-lg-7 ct-fade ct-d2">
+                    <div class="ct_panel">
+                        <ul class="ct_list">
+                            <li>
+                                <span class="ct_label">Morada</span>
+                                <span class="ct_value">Rua do Terreiro do Paço, 12<br>1100-148 Lisboa</span>
+                            </li>
+                            <li>
+                                <span class="ct_label">Telefone</span>
+                                <span class="ct_value"><a href="tel:+351213456789">+351 21 345 67 89</a></span>
+                            </li>
+                            <li>
+                                <span class="ct_label">Email</span>
+                                <span class="ct_value"><a href="mailto:reservas@casadotejo.pt">reservas@casadotejo.pt</a></span>
+                            </li>
+                            <li>
+                                <span class="ct_label">Horário</span>
+                                <span class="ct_value">Seg–Sex: 12h–15h | 19h–23h<br>Sáb–Dom: 12h–23h</span>
+                            </li>
+                        </ul>
+                        <div class="ct_social">
+                            <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" aria-label="TripAdvisor"><i class="fa fa-tripadvisor"></i></a>
+                        </div>
+                    </div>
+                </div>
 
-	<!-- Contact -->
+            </div>
 
-	<div class="contact">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="contact_title">Contact info</div>
-					<div class="contact_text">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Ut non justo eleifend, facilisis nibh ut, interdum odio. Suspendisse potenti.</p>
-					</div>
-					<div class="contact_logo_container">
-						<div class="contact_logo_title">The Venue</div>
-						<div class="contact_logo_subtitle">restaurant</div>
-					</div>
-				</div>
-				<div class="col-xl-5 col-lg-6">
-					<div class="contact_list_container d-flex flex-column align-items-lg-center justify-content-start">
-						<div class="contact_list_content">
-							<ul class="contact_list">
-								<li class="d-flex flex-row align-items-start justify-content-start">
-									<div><div>Address</div></div>
-									<div>1481 Creekside Lane Avila Beach, CA 931</div>
-								</li>
-								<li class="d-flex flex-row align-items-start justify-content-start">
-									<div><div>Phone</div></div>
-									<div>+53 345 7953 324</div>
-								</li>
-								<li class="d-flex flex-row align-items-start justify-content-start">
-									<div><div>E-mail</div></div>
-									<div>yourmail@gmail.com</div>
-								</li>
-							</ul>
-							<div class="contact_social">
-								<ul class="d-flex flex-row align-items-center justify-content-start">
-									<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row google_map_row">
-				<div class="col">
-					
-					<!-- Contact Map -->
+            <!-- Mapa -->
+            <div class="row google_map_row">
+                <div class="col">
+                    <div class="contact_map">
+                        <iframe
+                            class="contact_map_iframe"
+                            src="https://maps.google.com/maps?q=Joane,+Vila+Nova+de+Famalicão,+Portugal&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                            loading="lazy"
+                            allowfullscreen=""
+                            title="Localização Casa do Tejo — Joane, Vila Nova de Famalicão">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
 
-					<div class="contact_map">
+        </div>
+    </div>
 
-						<!-- Google Map -->
-						
-						<div class="map">
-							<div id="google_map" class="google_map">
-								<div class="map_container">
-									<div id="map"></div>
-								</div>
-							</div>
-						</div>
+    <script src="js/reservations.js"></script>
 
-					</div>
+    <script src="js/footer.js"></script>
 
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Reservations -->
-
-	<div class="reservations text-center">
-		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/reservations.jpg" data-speed="0.8"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="reservations_content d-flex flex-column align-items-center justify-content-center">
-						<div class="res_stars page_subtitle">5 Stars</div>
-						<div class="res_title">Make a Reservation</div>
-						<div class="res_form_container">
-							<form action="#" id="res_form" class="res_form">
-								<div class="d-flex flex-sm-row flex-column align-items-center justify-content-start">
-									<input type="text" id="datepicker" class="res_input" required="required">
-									<input type="text" class="res_input timepicker" required="required">
-									<select class="res_select">
-										<option disabled="" selected="">2 person</option>
-										<option>3 person</option>
-										<option>4 person</option>
-										<option>5 person</option>
-										<option>6 person</option>
-									</select>
-								</div>
-								<button class="res_button">Make a Reservation</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>		
-	</div>
-
-	<!-- Footer -->
-
-	<footer class="footer">
-		<div class="container">
-			<div class="row">
-
-				<!-- Footer Logo -->
-				<div class="col-lg-3 footer_col">
-					<div class="footer_logo">
-						<div class="footer_logo_title">The Venue</div>
-						<div class="footer_logo_subtitle">restaurant</div>
-					</div>
-					<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-<p style="line-height: 1.2;">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-				</div>
-
-				<!-- Footer About -->
-				<div class="col-lg-6 footer_col">
-					<div class="footer_about">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. Ut non justo eleifend, facilisis nibh ut, interdum odio.</p>
-					</div>
-				</div>
-
-				<!-- Footer Contact -->
-				<div class="col-lg-3 footer_col">
-					<div class="footer_contact">
-						<ul>
-							<li class="d-flex flex-row align-items-start justify-content-start">
-								<div><div class="footer_contact_title">Address:</div></div>
-								<div class="footer_contact_text">481 Creekside Lane Avila CA 93424</div>
-							</li>
-							<li class="d-flex flex-row align-items-start justify-content-start">
-								<div><div class="footer_contact_title">Address:</div></div>
-								<div class="footer_contact_text">+53 345 7953 32453</div>
-							</li>
-							<li class="d-flex flex-row align-items-start justify-content-start">
-								<div><div class="footer_contact_title">Address:</div></div>
-								<div class="footer_contact_text">yourmail@gmail</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
 </div>
 
 <script src="js/jquery-3.2.1.min.js"></script>
@@ -264,7 +352,21 @@
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="plugins/jquery-datepicker/jquery-ui.js"></script>
 <script src="plugins/jquery-timepicker/jquery.timepicker.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
-<script src="js/contact.js"></script>
+<script src="js/custom.js"></script>
+
+<script>
+(function() {
+    var els = document.querySelectorAll('.ct-fade, .ct-fade-left');
+    var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('ct-visible');
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    els.forEach(function(el) { obs.observe(el); });
+})();
+</script>
 </body>
 </html>
