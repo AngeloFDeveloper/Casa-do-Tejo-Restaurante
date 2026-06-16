@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt">
 <head>
 <title>Contacto — Casa do Tejo Restaurante</title>
@@ -6,6 +6,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Entre em contacto com a Casa do Tejo. Morada, telefone, email e reservas online.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css">
 <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -21,7 +24,7 @@
 <style>
 /* Hero — mesma foto da página inicial */
 .home .parallax_background {
-    background-image: url('images/fundo1.jpg') !important;
+    background-image: url('images/fundo1.webp') !important;
 }
 .home .parallax_background::after {
     content: '';
@@ -29,6 +32,15 @@
     top: 0; left: 0;
     width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.55);
+}
+
+/* Hero — altura mobile (igual a sobre nós / ementa) */
+@media only screen and (max-width: 767px) {
+    .home            { height: 350px !important; min-height: 0 !important; }
+    .home_container  { bottom: 69px !important; }
+    .home_subtitle   { font-size: 30px !important; }
+    .home_title h1   { font-size: 36px !important; }
+    .home_text       { display: none !important; }
 }
 
 /* Reservas — foto de mesa */
@@ -248,7 +260,7 @@
 
     <!-- Hero -->
     <div class="home">
-        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/fundo1.jpg" data-speed="0.8"></div>
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/fundo1.webp" data-speed="0.8"></div>
         <div class="home_container">
             <div class="container">
                 <div class="row">
@@ -264,7 +276,7 @@
                 </div>
             </div>
         </div>
-        <div class="scroll_icon"></div>
+       
     </div>
 
     <!-- Contacto -->

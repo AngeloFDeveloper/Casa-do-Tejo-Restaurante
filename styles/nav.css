@@ -1,8 +1,7 @@
 @charset "utf-8";
 
 /* nav.css — estilos do cabeçalho e menu, partilhados por todas as páginas */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+/* Fonts carregadas via <link> no <head> de cada HTML — sem @import para evitar double-fetch */
 
 /* Utilitários de transição */
 .trans_400 { transition: all 400ms ease; }
@@ -14,10 +13,37 @@
     color: #c9a96e;
     line-height: 0.85;
 }
+
+/* ---- Hero — container, subtítulo, título (igual ao contact.html) ---- */
+.home_container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    bottom: auto;
+    transform: translateY(-50%);
+    width: 100%;
+    z-index: 2;
+}
 .home_subtitle {
-    font-size: 52px;
     font-weight: normal;
     line-height: 0.85;
+}
+.home_title {
+    margin-top: 12px;
+}
+.home_title h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 0.04em;
+}
+.home_title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: #c9a96e;
+    margin: 20px auto 0;
 }
 
 /* ---- Cabeçalho fixo ---- */
@@ -315,6 +341,42 @@
 .footer_contact ul li div:last-child { white-space: nowrap; }
 .footer_col:not(:last-child) {
     border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ---- Responsive mobile (≤991px) ---- */
+@media only screen and (max-width: 991px) {
+    .hamburger {
+        display: block;
+    }
+    .hamburger_bar {
+        display: block;
+    }
+    .main_nav {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .hamburger_bar {
+        right: calc((100vw - 510px) / 2 - 15px);
+    }
+}
+
+@media only screen and (max-width: 539px) {
+    .hamburger_bar {
+        right: 15px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .res_input,
+    .res_select {
+        width: 100%;
+    }
+    .res_input:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 12px;
+    }
 }
 
 /* ---- Menu mobile — telefone reservas ---- */

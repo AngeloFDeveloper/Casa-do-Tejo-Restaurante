@@ -14,8 +14,8 @@
                     </div>
                     <nav class="main_nav ml-auto">
                         <ul class="d-flex flex-row align-items-center justify-content-end">
-                            <li><a href="about.html">sobre</a></li>
                             <li><a href="menu.html">ementa</a></li>
+                            <li><a href="about.html">sobre</a></li>
                             <li><a href="contact.html">contacto</a></li>
                             <li class="nav_cta"><a href="tel:+351213456789">Reservar</a></li>
                         </ul>
@@ -44,12 +44,14 @@
 <div class="menu trans_800">
     <div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
         <ul>
-            <li><a href="about.html">sobre nós</a></li>
             <li><a href="menu.html">ementa</a></li>
+            <li><a href="about.html">sobre nós</a></li>
             <li><a href="contact.html">contacto</a></li>
         </ul>
     </div>
-    <div class="menu_reservations_phone">Reservas: +351 21 345 67 89</div>
+    <a href="tel:+351213456789" class="menu_reservations_phone">
+        <i class="fa fa-phone" style="margin-right:8px;font-size:11px;"></i>Reservar por telefone
+    </a>
 </div>
 `);
 }());

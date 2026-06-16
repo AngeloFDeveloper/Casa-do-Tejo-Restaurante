@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt">
 <head>
 <title>Casa do Tejo — Restaurante em Lisboa</title>
@@ -6,6 +6,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Casa do Tejo — cozinha portuguesa contemporânea no coração de Lisboa. Reservas e menu online.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css">
 <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -22,7 +25,7 @@
    HERO com foto Unsplash
 ============================================= */
 .home .parallax_background {
-   background-image: url('images/fundo1.jpg') !important;
+   background-image: url('images/fundo1.webp') !important;
 }
 .home .parallax_background::after {
     content: '';
@@ -36,7 +39,7 @@
    SECÇÃO DE VÍDEO — foto de ambiente
 ============================================= */
 .video_section .background_image {
-     background-image: url('images/home.jpg') !important;
+     background-image: url('images/home.webp') !important;
 }
 
 /* =============================================
@@ -54,6 +57,17 @@
 }
 .sig_image img {
     content: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=85');
+}
+
+/* =============================================
+   HERO — mobile ocupa 100% do ecrã
+============================================= */
+@media only screen and (max-width: 767px) {
+    .home {
+        height: 100vh;
+        height: 100dvh;
+        min-height: 0 !important;
+    }
 }
 
 /* =============================================
@@ -150,6 +164,38 @@
     height: 1px;
     background: #c9a96e;
     margin-bottom: 22px;
+}
+
+/* =============================================
+   INTRO — mobile fixes
+============================================= */
+@media only screen and (max-width: 991px) {
+    /* Reset right offset set at 1600px breakpoint */
+    .intro_content {
+        right: auto !important;
+        width: auto !important;
+        margin-left: 0 !important;
+        padding: 40px 32px;
+        text-align: left;
+    }
+    .intro_images_wrap {
+        height: 420px;
+        margin-bottom: 0;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .intro_images_wrap {
+        height: 320px;
+    }
+    .intro_content {
+        padding: 32px 20px;
+    }
+    .intro_content::before {
+        top: 12px; left: 12px; right: 12px; bottom: 12px;
+    }
+    .intro_title h2 {
+        font-size: 30px;
+    }
 }
 
 /* =============================================
@@ -308,10 +354,10 @@
                     <div class="intro_images_wrap ct-fade-left ct-d1">
                         <div class="intro_img_frame"></div>
                         <div class="intro_img_main">
-                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=85" alt="Ambiente do restaurante">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=85" alt="Ambiente do restaurante" loading="lazy">
                         </div>
                         <div class="intro_img_accent ct-fade-left ct-d2">
-                            <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=700&q=85" alt="Pratos da Casa do Tejo">
+                            <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=700&q=85" alt="Pratos da Casa do Tejo" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -373,7 +419,7 @@
                     <div class="col-lg-7 offset-lg-5">
                         <div class="sig_image">
                             <div class="background_image" style="background-image:url(https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=85)"></div>
-                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=85" alt="Bacalhau à Brás — prato de assinatura">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=85" alt="Bacalhau à Brás — prato de assinatura" loading="lazy">
                         </div>
                     </div>
                 </div>
